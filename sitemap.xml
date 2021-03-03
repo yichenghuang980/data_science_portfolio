@@ -2,59 +2,59 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://yichenghuang980.com/projects/</loc>
+    <loc>https://example.com/projects/</loc>
     <lastmod>2021-03-02T12:00:00-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://yichenghuang980.com/</loc>
+    <loc>https://example.com/</loc>
     <lastmod>2021-03-02T12:00:00-05:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://yichenghuang980.com/projects/opioid/</loc>
+    <loc>https://example.com/projects/opioid/</loc>
     <lastmod>2020-11-05T11:15:58-04:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://yichenghuang980.com/projects/fakenews/</loc>
+    <loc>https://example.com/projects/fakenews/</loc>
     <lastmod>2020-11-02T11:14:48-04:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://yichenghuang980.com/projects/humana/</loc>
+    <loc>https://example.com/projects/humana/</loc>
     <lastmod>2020-11-01T11:25:05-04:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://yichenghuang980.com/projects/bitcoin/</loc>
+    <loc>https://example.com/projects/bitcoin/</loc>
     <lastmod>2020-11-01T11:00:59-04:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://yichenghuang980.com/projects/foodtruck/</loc>
+    <loc>https://example.com/projects/foodtruck/</loc>
     <lastmod>2017-04-11T11:13:32-04:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://yichenghuang980.com/projects/flaskapp/</loc>
+    <loc>https://example.com/projects/flaskapp/</loc>
     <lastmod>2017-04-09T10:58:08-04:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://yichenghuang980.com/about/</loc>
+    <loc>https://example.com/about/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://yichenghuang980.com/categories/</loc>
+    <loc>https://example.com/categories/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://yichenghuang980.com/contact/</loc>
+    <loc>https://example.com/contact/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://yichenghuang980.com/tags/</loc>
+    <loc>https://example.com/tags/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

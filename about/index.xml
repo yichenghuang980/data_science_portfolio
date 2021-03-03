@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>About on Yicheng Huang</title>
-    <link>https://yichenghuang980.com/about/</link>
+    <link>https://example.com/about/</link>
     <description>Recent content in About on Yicheng Huang</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://yichenghuang980.com/about/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://example.com/about/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
