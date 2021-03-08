@@ -34,13 +34,13 @@
 <meta property="og:description" content="Practical Data Science - Final Project" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yichenghuang980.github.io/data_science_portfolio/projects/opioid/" /><meta property="article:section" content="projects" />
-<meta property="article:published_time" content="2020-11-05T11:15:58-04:00" />
-<meta property="article:modified_time" content="2020-11-05T11:15:58-04:00" /><meta property="og:site_name" content="Yicheng Huang" />
+<meta property="article:published_time" content="2020-11-21T11:15:58-04:00" />
+<meta property="article:modified_time" content="2020-11-21T11:15:58-04:00" /><meta property="og:site_name" content="Yicheng Huang" />
 
 <meta itemprop="name" content="Estimate Effectiveness of Opioids Control Policies on Drug Overdose Mortality">
-<meta itemprop="description" content="Practical Data Science - Final Project"><meta itemprop="datePublished" content="2020-11-05T11:15:58-04:00" />
-<meta itemprop="dateModified" content="2020-11-05T11:15:58-04:00" />
-<meta itemprop="wordCount" content="571">
+<meta itemprop="description" content="Practical Data Science - Final Project"><meta itemprop="datePublished" content="2020-11-21T11:15:58-04:00" />
+<meta itemprop="dateModified" content="2020-11-21T11:15:58-04:00" />
+<meta itemprop="wordCount" content="582">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Estimate Effectiveness of Opioids Control Policies on Drug Overdose Mortality"/>
 <meta name="twitter:description" content="Practical Data Science - Final Project"/>
@@ -56,7 +56,7 @@
 
   
   
-  <header class="cover bg-top" style="background-image: url('https://yichenghuang980.github.io/data_science_portfolio/images/opioid.jpg');">
+  <header class="cover bg-top" style="background-image: url('https://yichenghuang980.github.io/data_science_portfolio/images/opioid/opioid.jpg');">
     <div class="pb3-m pb6-l bg-black-60">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
@@ -164,23 +164,26 @@
       <h1 class="f1 athelas mt3 mb1">Estimate Effectiveness of Opioids Control Policies on Drug Overdose Mortality</h1>
       
       
-      <time class="f6 mv4 dib tracked" datetime="2020-11-05T11:15:58-04:00">November 5, 2020</time>
+      <time class="f6 mv4 dib tracked" datetime="2020-11-21T11:15:58-04:00">November 21, 2020</time>
 
       
       
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Over the past two decades, the United States has seen a tremendous increase in the use and
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h1 id="background">Background</h1>
+<p>Over the past two decades, the United States has seen a tremendous increase in the use and
 abuse of prescription opioids, leading not only to a huge rise in opioid addiction, but also a
 rise in prescription overdose deaths, and increasingly deaths from non-prescription opioids
 like heroin and fentanyl as people who became addicted to opioids due to prescriptions
 turn to illegal markets to sustain their addiction.</p>
-<p>In order to deal with those situations, several states that had notoriety for having high opioids prescriptions and overdose mortality issued their own policies in different years. The goal of this project is to examine the effectiveness of those policies with pre-post analysis and difference-in-difference (DD) analysis. Three states with opioid control policies are Florida, Texas, and Washington. In order to construct control gorups and conduct DD analysis, three control states without such polices are chosen for each treated states based upon population, geographically proximity, and state government party.</p>
+<p>In order to deal with those situations, several states that had notoriety for having high opioids prescriptions and overdose mortality issued their own policies in different years. The goal of this project is to examine the effectiveness of those policies with pre-post analysis and difference-in-difference (DD) analysis. Three states with opioid control policies are Florida, Texas, and Washington. In order to construct control gorups and conduct DD analysis, three control states without such polices are chosen for each treated states based upon population, geographical proximity, and state government party.</p>
+<h1 id="treated-and-control-states">Treated and Control States</h1>
 <p>Specifically, controll states for Florida:</p>
 <p>Louisiana, Mississippi, South Carolina</p>
 <p>For Texas:</p>
 <p>Arkansas, New Mexico, Kansas</p>
 <p>For Washington:</p>
 <p>Colorado, Oregon, California</p>
+<h1 id="datasets">Datasets</h1>
 <p>We mainly used two datasets:</p>
 <ol>
 <li>
@@ -190,9 +193,11 @@ turn to illegal markets to sustain their addiction.</p>
 <p>Vital Statistics Mortality Data: the US Vital Statistics records which include data on every death in every county and every state in the United States.</p>
 </li>
 </ol>
+<h1 id="example-comparison">Example comparison</h1>
 <p>Then we compare trends in both treated and control states before and after policy change to determine whether the policy truly impacted opioids shipments and drug overdose mortality. Here is an example:</p>
-<p><img src="%22/images/florida.jpg%22" alt=""></p>
+<p><img src="https://yichenghuang980.github.io/data_science_portfolio/images/opioid/florida.png" alt="Overdose Mortality for Florida vs control states"></p>
 <p>It is noticeable that overdose mortality in Flordia and its control stats diverged from each other and the gap became even larger after the policy change, which indicates possible effectiveness of the opioid control policy in Floria.</p>
+<h1 id="conclusion">Conclusion</h1>
 <p>We presume that due to the notoriety surrounding the incredibly large volumes of opioid
 prescribed in Florida, the policy in 2010 contains a series of mandatory regulations and
 physician requirements not seen in the other states. There is even a special task force
@@ -203,6 +208,7 @@ medical institutions to comply with. Thus, the differences in the results the po
 <p>In general, the policies reviewed appear to be more effective in decreasing the volume of opioids shipment, and less effective in reducing overdose mortality. While there are likely many reasons behind this, some potential confounders include mental well being of drug addicts and the fact that restricting access to a drug does not address the
 underlying addiction that influences both demand for opioids and overdose mortality. Also these policies are only aimed at restricting the flow of prescription opioids. As a result, addicts
 might purchase and overdose on illegal opioids like heroin or fentanyl. This even has the potential to exacerbate the overdose problem as the unstandardized strength of illegal opioids is one of the causes for accidental overdoses.</p>
+<h1 id="more-details">More Details</h1>
 <p><a href="https://github.com/yichenghuang980/estimating-impact-of-opioids-2020-team6">The complete report and code can be acccess here.</a></p>
 <p>Tip: open the link in a new tab to avoid switching back and forth.</p>
 <ul class="pa0">
@@ -226,7 +232,7 @@ might purchase and overdose on illegal opioids like heroin or fentanyl. This eve
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://yichenghuang980.github.io/data_science_portfolio/" >
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://yichenghuang980.github.io/data_science_portfolio" >
     &copy;  Yicheng Huang 2021 
   </a>
     <div>

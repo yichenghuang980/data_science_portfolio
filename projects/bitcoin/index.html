@@ -40,7 +40,7 @@
 <meta itemprop="name" content="Bitcoin Price Prediction inside AWS Serverless Data Engineering Pipeline">
 <meta itemprop="description" content="AWS Data Engineering"><meta itemprop="datePublished" content="2020-11-01T11:00:59-04:00" />
 <meta itemprop="dateModified" content="2020-11-01T11:00:59-04:00" />
-<meta itemprop="wordCount" content="590">
+<meta itemprop="wordCount" content="449">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Bitcoin Price Prediction inside AWS Serverless Data Engineering Pipeline"/>
 <meta name="twitter:description" content="AWS Data Engineering"/>
@@ -157,66 +157,49 @@
       
       
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Nevertheless, as be harangued them, the satisfaction and admiration
-unanimously excited by his costume were dissipated by his words; and when
-he reached that untoward conclusion: “As soon as his illustrious eminence,
-the cardinal, arrives, we will begin,” his voice was drowned in a thunder
-of hooting.</p>
-<p>“Begin instantly! The mystery! the mystery immediately!” shrieked the
-people. And above all the voices, that of Johannes de Molendino was
-audible, piercing the uproar like the fife’s derisive serenade: “Commence
-instantly!” yelped the scholar.</p>
-<p>“Down with Jupiter and the Cardinal de Bourbon!” vociferated Robin
-Poussepain and the other clerks perched in the window.</p>
-<p>“The morality this very instant!” repeated the crowd; “this very instant!
-the sack and the rope for the comedians, and the cardinal!”</p>
-<p>Poor Jupiter, haggard, frightened, pale beneath his rouge, dropped his
-thunderbolt, took his cap in his hand; then he bowed and trembled and
-stammered: “His eminence—the ambassadors—Madame Marguerite of
-Flanders—.” He did not know what to say. In truth, he was afraid of
-being hung.</p>
-<p>Hung by the populace for waiting, hung by the cardinal for not having
-waited, he saw between the two dilemmas only an abyss; that is to say, a
-gallows.</p>
-<p>Luckily, some one came to rescue him from his embarrassment, and assume
-the responsibility.</p>
-<p>An individual who was standing beyond the railing, in the free space
-around the marble table, and whom no one had yet caught sight of, since
-his long, thin body was completely sheltered from every visual ray by the
-diameter of the pillar against which he was leaning; this individual, we
-say, tall, gaunt, pallid, blond, still young, although already wrinkled
-about the brow and cheeks, with brilliant eyes and a smiling mouth, clad
-in garments of black serge, worn and shining with age, approached the
-marble table, and made a sign to the poor sufferer. But the other was so
-confused that he did not see him. The new comer advanced another step.</p>
-<p>“Jupiter,” said he, “my dear Jupiter!”</p>
-<p>The other did not hear.</p>
-<p>At last, the tall blond, driven out of patience, shrieked almost in his
-face,—</p>
-<p>“Michel Giborne!”</p>
-<p>“Who calls me?” said Jupiter, as though awakened with a start.</p>
-<p>“I,” replied the person clad in black.</p>
-<p>“Ah!” said Jupiter.</p>
-<p>“Begin at once,” went on the other. “Satisfy the populace; I undertake to
-appease the bailiff, who will appease monsieur the cardinal.”</p>
-<p>Jupiter breathed once more.</p>
-<p>“Messeigneurs the bourgeois,” he cried, at the top of his lungs to the
-crowd, which continued to hoot him, “we are going to begin at once.”</p>
-<p>“<em>Evoe Jupiter! Plaudite cives</em>! All hail, Jupiter! Applaud,
-citizens!” shouted the scholars.</p>
-<p>“Noel! Noel! good, good,” shouted the people.</p>
-<p>The hand clapping was deafening, and Jupiter had already withdrawn under
-his tapestry, while the hall still trembled with acclamations.</p>
-<p>In the meanwhile, the personage who had so magically turned the tempest
-into dead calm, as our old and dear Corneille puts it, had modestly
-retreated to the half-shadow of his pillar, and would, no doubt, have
-remained invisible there, motionless, and mute as before, had he not been
-plucked by the sleeve by two young women, who, standing in the front row
-of the spectators, had noticed his colloquy with Michel Giborne-Jupiter.</p>
-<p>“Master,” said one of them, making him a sign to approach. “Hold your
-tongue, my dear Liénarde,” said her neighbor, pretty, fresh, and very
-brave, in consequence of being dressed up in her best attire. “He is not a
-clerk, he is a layman; you must not say master to him, but messire.”</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h1 id="background">Background</h1>
+<p>As the scale and size of data grow larger, cloud computing becomes a heated topic and advantageous choice for corporations whose daily operations invlove huge amount of data to consider for computing, storage, and database solutions. This project is aimed at building a serverless data engineering pipeline and transmitting data into SageMaker machine learning models to predict Bitcoin price and cluster community review.</p>
+<h1 id="part-1-web-scrape">Part 1: Web Scrape</h1>
+<p>It contains two sets of lambda function, .Price and .Text.</p>
+<p>producerPrice: triggered by CloudWatch presumably once a day to scrape the specific website, merge into DynamoDB to ensure uniqueness, and then send to SQS instance &ldquo;producer&rdquo;.</p>
+<p>consumerPrice: triggered by EventWatch inside SQS instance &ldquo;producer&rdquo; to receive and rearrange messages into a dataframe and save as csv file into S3 bucket &ldquo;ids706&rdquo;</p>
+<p>producerText: triggered by CloudWatch presumably every 10 - 20 mins to scrape the specific Bitcoin community, merge into DynamoDB to ensure uniqueness, and then send to SQS instance &ldquo;sentiment&rdquo;.</p>
+<p>consumerPrice: triggered by EventWatch inside SQS instance &ldquo;sentiment&rdquo; to receive and rearrange messages into a dataframe, interact with AWS Comprehend, and save the final sentiment analyses as .csv file into S3 bucket &ldquo;ids706&rdquo;</p>
+<h1 id="part-2-sagemaker">Part 2: SageMaker</h1>
+<p>Import accumulated datasets from a certain period of web scraping and train a linear time series model to predict Bitcoin price and LDA model to cluster community review.</p>
+<h1 id="workflow">Workflow</h1>
+<p>First, producer lambda is trigger by CloudWatch and will scrape Bitcoin price once a day and community review every 10-20 mins from specific websites and update the corresponding DynamoDB tables and S3 buckets.</p>
+<p>Next, producer lambda function extracts data from DynamoDB and sends messages to SQS.</p>
+<p>Afterwards, consumer lambda function is triggered by the EventWatch and transforms messages from SQS queues.</p>
+<p>Then, interact with AWS Comprehend to gain sentiment analysis.</p>
+<p>Lastly, connect with AWS S3 bucket and export data as .csv into it.</p>
+<p>Train the SageMaker Machine Learning model with accumulated data and gain prediction and cluster.</p>
+<p><img src="https://yichenghuang980.github.io/data_science_portfolio/images/bitcoin/workflow.png" alt="workflow"></p>
+<h1 id="tools-and-services">Tools and Services</h1>
+<p>The following aws services are included:</p>
+<ol>
+<li>CloudWatch</li>
+<li>EventWatch</li>
+<li>Lambda</li>
+<li>DynamoDB</li>
+<li>SQS</li>
+<li>Comprehend</li>
+<li>SageMaker</li>
+<li>S3</li>
+</ol>
+<p>To determine the rate for CloudWatch and save unnecessary computation power, a careful examination on the community/webiste vitality is required. The main metric is the average time age between two reviews or comments.</p>
+<p>Ideally, keep the CloudWatch for producer lambda function enabled to accumulate datasets. However, if not training models with the datasets, keep the EventWatch disabled to save storage and computing power.</p>
+<h1 id="datasets">Datasets</h1>
+<p><a href="https://coincodex.com/crypto/bitcoin/historical-data/">Bitcoin-crypto</a></p>
+<p><a href="https://coinmarketcap.com/currencies/bitcoin/historical-data/">Bitcoin-CoinMarketCap</a></p>
+<p><a href="https://www.marketwatch.com/investing/index/dxy">US Dollar Index</a></p>
+<p><a href="https://www.marketwatch.com/investing/index/spx">Standard Poor 500 Index</a></p>
+<p><a href="https://coinmarketcap.com/currencies/ethereum/historical-data/">Ethereum Price</a></p>
+<p><a href="https://www.trustpilot.com/review/bitcoin.com">Bitcoin Community Reviews - inactive community</a></p>
+<p><a href="https://www.investing.com/crypto/bitcoin/chat">Bitcoin Community Reviews - active community</a></p>
+<h1 id="more-details">More Details</h1>
+<p><a href="https://github.com/yichenghuang980/Bitcoin">The complete report and code can be acccess here.</a></p>
+<p>Tip: open the link in a new tab to avoid switching back and forth.</p>
 <ul class="pa0">
   
 </ul>
@@ -238,7 +221,7 @@ clerk, he is a layman; you must not say master to him, but messire.”</p>
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://yichenghuang980.github.io/data_science_portfolio/" >
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://yichenghuang980.github.io/data_science_portfolio" >
     &copy;  Yicheng Huang 2021 
   </a>
     <div>
